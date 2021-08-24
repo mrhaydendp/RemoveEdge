@@ -3,5 +3,5 @@ Removes Microsoft Edge and makes sure it won't come back thanks to a `.reg` file
 ## Installation
 Paste this command into Powershell (admin):
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/mrhaydendp/RemoveEdge/raw/main/RemoveEdge.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JEcWV'))
 ```
