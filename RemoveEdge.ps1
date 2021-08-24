@@ -7,3 +7,6 @@ Invoke-WebRequest -Uri https://christitus.com/files/stopedge.zip -OutFile ./stop
 # Unzip and run .reg file
 Expand-Archive .\stopedge.zip -Force .\
 .\stopedge.reg
+
+# Cleanup
+rm ./stopedge*
