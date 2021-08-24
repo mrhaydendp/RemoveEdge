@@ -1,5 +1,5 @@
 # RemoveEdge
-Removes Microsoft Edge and makes sure it won't come back.
+Removes Microsoft Edge and makes sure it won't come back thanks to a `.reg` file made by [Chris Titus](https://christitus.com).
 ## Installation
 Paste this command into Powershell (admin):
 ```
