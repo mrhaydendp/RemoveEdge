@@ -12,4 +12,4 @@ Expand-Archive .\stopedge.zip .\
 Start-Sleep 10
 
 # Cleanup
-rm ./stopedge*
+Remove-Item ./stopedge*
