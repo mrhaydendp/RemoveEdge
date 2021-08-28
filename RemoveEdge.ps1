@@ -1,3 +1,6 @@
+# Go to home directory
+cd ~
+
 # Removes Edge installer
 & 'C:\Program Files (x86)\Microsoft\Edge\Application\*\Installer\setup.exe' --uninstall --system-level --verbose-logging --force-uninstall
 
