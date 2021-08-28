@@ -1,3 +1,6 @@
+# Elevates privileges
+start-process powershell –verb runAs
+
 # Removes Edge installer
 & 'C:\Program Files (x86)\Microsoft\Edge\Application\*\Installer\setup.exe' --uninstall --system-level --verbose-logging --force-uninstall
 
