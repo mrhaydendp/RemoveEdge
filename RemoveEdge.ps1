@@ -8,5 +8,8 @@ Start-BitsTransfer -Source https://christitus.com/files/stopedge.zip -Destinatio
 Expand-Archive .\stopedge.zip .\
 .\stopedge.reg
 
+# Wait 10 seconds
+Start-Sleep 10
+
 # Cleanup
 rm ./stopedge*
