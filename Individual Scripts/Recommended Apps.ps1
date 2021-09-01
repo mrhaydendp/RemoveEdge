@@ -3,12 +3,14 @@ if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
     'Winget Already Installed'
 }  
 else{
-    Write-Host "Winget not found, installing it right now."
+    Write-Host 'Installing Winget'
     Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
     $nid = (Get-Process AppInstaller).Id
     Wait-Process -Id $nid
-    Write-Host Winget Installed
+    Write-Host 'Winget Installed'
 }
+
+# Install Recommended Apps
 winget install brave
 winget install 7zip
 winget install bleachbit
