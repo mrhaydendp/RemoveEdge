@@ -1,7 +1,7 @@
-# Removes Edge installer
+# Remove Edge installer
 & 'C:\Program Files (x86)\Microsoft\Edge\Application\*\Installer\setup.exe' --uninstall --system-level --verbose-logging --force-uninstall
 
-# Adds registry file that tells Windows you have the old Edge browser
+# Add registry file that tells Windows you have the old Edge browser
 Start-BitsTransfer https://christitus.com/files/stopedge.zip ~\stopedge.zip
 
 # Unzip and run .reg file
