@@ -10,6 +10,9 @@ else{
     Write-Host 'Winget Installed'
 }
 
+# Wait 5 Seconds
+Start-Sleep 5
+
 # Install Recommended Apps
 winget install brave
 winget install 7zip
