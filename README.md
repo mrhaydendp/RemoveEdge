@@ -2,7 +2,7 @@
 Removes Microsoft Edge and makes sure it won't come back!
 
 ## Installation
-Paste this command into Powershell (admin):
+Paste this command into Powershell (Admin) or Windows Terminal (Admin):
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JEcWV'))
+iwr -useb https://github.com/mrhaydendp/RemoveEdge/raw/main/RemoveEdge.ps1 | iex
 ```
