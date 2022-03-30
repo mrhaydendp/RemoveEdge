@@ -1,8 +1,5 @@
-# Go to HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\
-Set-Location HKCU:\Software\Microsoft\Windows\CurrentVersion\
-
 # Create UserProfileEngagement Key
-Get-Item .\ | New-Item 'UserProfileEngagement' -Force
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\" -Name "UserProfileEngagement" -Force
 
-# Create ScoobeSystemSettingEnabled DWORD With a Value of 0
-New-ItemProperty .\UserProfileEngagement\ -Name 'ScoobeSystemSettingEnabled' -Value "0" -PropertyType DWORD -Force
+# Create ScoobeSystemSettingEnabled in UserProfileEngagement Directory With a DWORD Value of 0
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement\" -Name "ScoobeSystemSettingEnabled" -Force -Type DWORD -Value 0
