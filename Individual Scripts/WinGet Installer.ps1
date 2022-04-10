@@ -1,4 +1,4 @@
-# Check if WinGet is Installed, if not Install Run Script
+# Check if WinGet is Installed, if not Run Script
 if (!(Test-Path "~\AppData\Local\Microsoft\WindowsApps\winget.exe")){
     # Get Architecture Type & Install Latest Version of VCLibs From MS Docs
     $arch = "x64"
