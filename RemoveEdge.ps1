@@ -1,6 +1,6 @@
-# Delete Edge setup.exe and all of its subfolders
-$edge = (Get-ChildItem 'C:\Program Files (x86)\Microsoft\Edge\Application\*\Installer\setup.exe' | Select -First 1)
-& $edge --uninstall --system-level --verbose-logging --force-uninstall
+# Force close Edge & delete application directory
+Get-Process msedge | Stop-Process
+Remove-Item 'C:\Program Files (x86)\Microsoft\Edge\' -Recurse -Force
 
 # Create registry file that tells Windows you have the old non-Chromium Edge browser (disables updates)
 New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name "EdgeUpdate" -Force
