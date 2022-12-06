@@ -1,0 +1,1 @@
+(Invoke-WebRequest "https://www.glenn.delahoy.com/snappy-driver-installer-origin/").Links.Href | Select-String "SDIO_(.*?)[0-9].zip" | % { Start-BitsTransfer "https://www.glenn.delahoy.com$_" -Destination "$HOME\Desktop" }
