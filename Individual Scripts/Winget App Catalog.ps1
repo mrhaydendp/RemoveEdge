@@ -1,23 +1,22 @@
-$applications = @(
-    "## Utilities"
-    "Windows Terminal"
-    "PowerToys (Preview)"
-    "7-Zip"
-    "AutoHotkey"
-    "Discord"
-    "BleachBit"
-    "GitHub Desktop"
-    "balenaEtcher"
-    "## Web Browsers"
-    "Brave"
-    "Mozilla Firefox"
-    "Google Chrome"
-    "## Video & Image Tools"
-    "GIMP"
-    "VLC media player"
-    "## Document Tools"
-    "VSCodium"
-    "Notepad++"
-) | Out-GridView -Title "Select Application(s) to Install (Ctrl + Click to Select Multiple)" -OutputMode Multiple | ForEach-Object {
-    winget install -s winget "$_" --accept-source-agreements | Out-Host
+# Applications List
+$applications = (
+    [PSCustomObject] @{Program="7-Zip";Source="Winget";Category="Utilities"},
+    [PSCustomObject] @{Program="BleachBit";Source="Winget";Category="Utilities"},
+    [PSCustomObject] @{Program="Notepad++";Source="Winget";Category="Utilities"},
+    [PSCustomObject] @{Program="NVCleanstall";Source="Winget";Category="Utilities"},
+    [PSCustomObject] @{Program="Obsidian";Source="Winget";Category="Utilities"},
+    [PSCustomObject] @{Program="PowerToys (Preview)";Source="Winget";Category="Utilities"},
+    [PSCustomObject] @{Program="Brave";Source="Winget";Category="Browsers"},
+    [PSCustomObject] @{Program="Google Chrome";Source="Winget";Category="Browsers"},
+    [PSCustomObject] @{Program="Mozilla Firefox";Source="Winget";Category="Browsers"},
+    [PSCustomObject] @{Program="VSCodium";Source="Winget";Category="Development"},
+    [PSCustomObject] @{Program="Visual Studio Code";Source="Winget";Category="Development"},
+    [PSCustomObject] @{Program="Discord";Source="Winget";Category="Gaming"},
+    [PSCustomObject] @{Program="GOG Galaxy";Source="Winget";Category="Gaming"},
+    [PSCustomObject] @{Program="Steam";Source="Winget";Category="Gaming"}
+)
+
+# Install Selected Applications by Using Source and Program Tags
+$applications | Out-GridView -Title "Select Application(s) to Install (Ctrl + Click to Select Multiple)" -Passthru | % {
+    winget install -s $_.Source $_.Program --accept-source-agreements
 }
