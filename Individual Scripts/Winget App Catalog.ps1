@@ -18,5 +18,5 @@ $applications = (
 
 # Install Selected Applications by Using Source and Program Tags
 $applications | Out-GridView -Title "Select Application(s) to Install (Ctrl + Click to Select Multiple)" -Passthru | % {
-    winget install -s $_.Source $_.Program --accept-source-agreements
+    winget install -s $_.Source $_.Program --accept-package-agreements --accept-source-agreements
 }
