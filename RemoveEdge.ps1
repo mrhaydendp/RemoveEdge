@@ -1,8 +1,11 @@
-# Force close Edge & delete application directory
+# Force close Edge
 Get-Process msedge -ErrorAction SilentlyContinue | Stop-Process
 Start-Sleep 2
-Remove-Item "C:\Program Files (x86)\Microsoft\Edge\" -Recurse -Force
-Get-Item "$HOME\AppData\Local\Packages\Microsoft.MicrosoftEdge*" | % { Remove-Item "$_" -Recurse -Force }
+
+# Remove Edge from ProgramFiles, AppData, ProgramData, Start Menu, & Desktop
+Get-Item "${env:ProgramFiles(x86)}\Microsoft\Edge\","$env:LOCALAPPDATA\Packages\Microsoft.MicrosoftEdge*","$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge*","$HOME\Desktop\Microsoft Edge*" | % {
+    Remove-Item "$_" -Recurse -Force
+}
 
 # Create registry file that tells Windows you have the old non-Chromium Edge browser (disables updates)
 New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name "EdgeUpdate" -Force
