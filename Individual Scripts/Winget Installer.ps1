@@ -4,26 +4,22 @@ if (Test-Path "$HOME\AppData\Local\Microsoft\WindowsApps\winget.exe"){
     pause; exit
 }
 
-# Select installer method
-$option = Read-Host "Winget Installation Methods:`n1. Appinstaller`n2. Windows Store`n3. Add-Appx`nOptions (1,2,3)"
+# Select installation method
+$option = Read-Host "Winget Installation Methods:`n1. Direct Install (Default)`n2. Winget .msixbundle`n3. Windows Store`nOptions (1,2,3)"
 
 # Installation methods
-if ("$option" -eq "1"){
-    Write-Host "Installing 'getwinget.msixbundle' from Official Microsoft Link & Running with Appinstaller"
+if ("$option" -eq "2"){
+    Write-Host "Installing Winget .msixbundle & Opening in App Installer"
     Start-BitsTransfer "https://aka.ms/getwinget" getwinget.msixbundle; .\getwinget.msixbundle
     Get-Process AppInstaller | Wait-Process
-} elseif ("$option" -eq "2"){
+} elseif ("$option" -eq "3"){
     Write-Host "Opening Store Link..."
     Start-Process "ms-windows-store://pdp/?ProductId=9NBLGGH4NNS1"
     Get-Process WinStore.App | Wait-Process
-} elseif ("$option" -eq "3"){
-    Write-Host "Checking Architecture"
-    $arch = "64"
-    if (([IntPtr]::Size * 8) -eq 32){
-        $arch = "86"
-    }
-    Write-Host "Stream-installing Winget & VCLibs"
-    Add-AppxPackage -DependencyPath "https://aka.ms/Microsoft.VCLibs.x$arch.14.00.Desktop.appx" -Path "https://aka.ms/getwinget" -ForceUpdateFromAnyVersion
+} else {
+    Write-Host "Opening App Installer..."
+    Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
+    Get-Process AppInstaller | Wait-Process
 }
 
 # Check if Winget status
