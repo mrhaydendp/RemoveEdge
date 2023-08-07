@@ -1,14 +1,21 @@
 #Requires -RunAsAdministrator
 
-# Check if Edge is installed
+# If Edge is not installed, ask to install or exit
 if (!(Test-Path "${env:ProgramFiles(x86)}\Microsoft\Edge")){
-    Write-Host "Error: Microsoft Edge was not Found"
+    $option = Read-Host "Edge was not Found, Would you Like to Install it? (Y/n)"
+    if ("$option" -ne "n"){
+        Start-BitsTransfer -Source "https://go.microsoft.com/fwlink/?linkid=2109047&Channel=Stable&language=en&brand=M100" MicrosoftEdgeSetup.exe; .\MicrosoftEdgeSetup.exe
+        Get-Process MicrosoftEdgeSetup | Wait-Process
+        Write-Host "Edge Installation Complete"
+        Remove-Item .\MicrosoftEdgeSetup.exe
+    }
+    Write-Host "Exiting..."
     pause; exit
 }
 
-# Backup start menu
-Write-Host "Backing Up Start Menu to:" "'$HOME\Documents\Backup'"
-Copy-Item -Recurse "C:\ProgramData\Microsoft\Windows\Start Menu" "$HOME\Documents\Backup"
+# Enable & create system restore point
+Enable-ComputerRestore -Drive (Get-Location).Drive.Root
+Checkpoint-Computer  -Description "Before RemoveEdge" -RestorePointType "MODIFY_SETTINGS"
 
 # Force stop Edge
 Get-Process msedge -ErrorAction SilentlyContinue | Stop-Process
