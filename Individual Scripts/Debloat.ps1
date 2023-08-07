@@ -15,7 +15,7 @@ $disable = Get-Content Debloat.txt
 
 # If package from Debloat.txt matches one from appxpackages.txt, attempt to remove it
 foreach ($array in $disable){
-    if (!(Select-String -Quiet $array.split(" #")[0] appxpackages.txt)){
+    if (Select-String -Quiet $array.split(" #")[0] appxpackages.txt){
         Write-Host "Attempting to Remove: $array"
         Get-AppxPackage $array.split(" #")[0] | Remove-AppxPackage -Verbose
     }
