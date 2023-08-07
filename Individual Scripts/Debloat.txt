@@ -1,0 +1,10 @@
+Microsoft.BingNews                        # News
+Microsoft.BingWeather                     # Weather
+Microsoft.GetHelp                         # Get Help
+Microsoft.Getstarted                      # Tips
+Microsoft.MicrosoftSolitaireCollection    # Solitaire & Casual Games
+Microsoft.MicrosoftStickyNotes            # Sticky Notes
+Microsoft.Todos                           # Microsoft To Do
+Microsoft.WindowsFeedbackHub              # Feedback Hub
+Microsoft.WindowsMaps                     # Maps
+Microsoft.YourPhone                       # Phone Link
