@@ -1,8 +1,9 @@
 # RemoveEdge
-Removes Microsoft Edge and makes sure it won't come back!
+Simple script that removes Microsoft Edge and makes sure it won't come back!
 
 ## How to Run
-Paste this command into Powershell (Admin) or Windows Terminal (Admin):
+Paste this command into Powershell/Windows Terminal (Admin):
 ```
 irm "https://github.com/mrhaydendp/RemoveEdge/raw/main/RemoveEdge.ps1" | iex
 ```
+Or, download `RemoveEdge.ps1` and run locally.
