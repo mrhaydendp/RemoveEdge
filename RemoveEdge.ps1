@@ -7,7 +7,7 @@ if (([Security.Principal.WindowsIdentity]::GetCurrent()).Owner.Value -ne "S-1-5-
 }
 
 # Exit if Edge was not found
-if (!(Test-Path "C:\Program Files(x86)\Microsoft\Edge")){
+if (!(Test-Path "C:\Program Files (x86)\Microsoft\Edge")){
     $option = Read-Host "Edge was not Found, Would you Like to Re-install it? (Y/n)"
     if ("$option" -ne "n"){
         winget install -s winget "Microsoft Edge"
